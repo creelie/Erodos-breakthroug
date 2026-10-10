@@ -1,0 +1,53 @@
+{
+  "title": "Finite-time blowup for Navier–Stokes: OpenAI's Lean proof, built and checked",
+  "version": "1.0.0",
+  "upload_type": "software",
+  "creators": [
+    {
+      "name": "OpenAI"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Bhattacharjee, Deep",
+      "orcid": "0000-0003-0466-750X",
+      "affiliation": "Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha 751030, India",
+      "type": "DataCurator"
+    }
+  ],
+  "description": "<p>OpenAI's Lean 4 proof of finite-time blowup for the forced three-dimensional Navier–Stokes equations (openai/NavierStokesAndEuler, commit f9e8bc5, Apache-2.0), unchanged, with a record of an independent build. The mathematics, the papers and the Lean code are OpenAI's; this archive adds no new proof.</p><p>For every viscosity ν &gt; 0 the library proves alternatives (C), breakdown on ℝ³, and (D), breakdown on ℝ³/ℤ³, of Fefferman's official description of the Navier–Stokes Millennium Prize Problem, as formalized in Google DeepMind's Formal Conjectures. The build record (10 October 2026, Lean v4.34.0-rc2) shows that both theorems depend only on propext, Classical.choice and Quot.sound, that the 816 files contain no sorry, native_decide or new axiom, and that the 16 definitions and both statements are identical, declaration by declaration, to Formal Conjectures at commit 8bf45ed. The README summarizes the discussion in arXiv:2610.08144 of where the Lean proof departs from the written paper. Whether the Clay Mathematics Institute awards the prize is for the Institute to decide.</p>",
+  "keywords": [
+    "Navier–Stokes equations",
+    "finite-time blowup",
+    "Millennium Prize Problem",
+    "Lean 4",
+    "Mathlib",
+    "formal verification"
+  ],
+  "license": "Apache-2.0",
+  "language": "eng",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/openai/NavierStokesAndEuler",
+      "relation": "isDerivedFrom",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf",
+      "relation": "isSupplementTo",
+      "resource_type": "publication-preprint"
+    },
+    {
+      "identifier": "https://github.com/google-deepmind/formal-conjectures",
+      "relation": "references",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "arXiv:2610.08144",
+      "relation": "references",
+      "resource_type": "publication-preprint",
+      "scheme": "arxiv"
+    }
+  ],
+  "notes": "The proof, the papers and the Lean code are by OpenAI (upstream commits by Boris Alexeev). The independent build and the checks in verification/ were recorded by Deep Bhattacharjee (d.bhattacharjee@erl-forschung.de; itsdeep@live.com)."
+}

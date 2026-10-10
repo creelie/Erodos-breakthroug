@@ -1,0 +1,43 @@
+cff-version: 1.2.0
+message: "The proof is OpenAI's. If you use it, please cite OpenAI's paper and this archive."
+title: "Finite-time blowup for Navier–Stokes: OpenAI's Lean proof, built and checked"
+type: software
+authors:
+  - name: OpenAI
+version: 1.0.0
+date-released: 2026-10-10
+license: Apache-2.0
+repository-code: "https://github.com/creelie/Erodos-breakthroug"
+keywords:
+  - Navier–Stokes equations
+  - finite-time blowup
+  - Millennium Prize Problem
+  - Lean 4
+  - formal verification
+abstract: >-
+  OpenAI's Lean 4 proof of finite-time blowup for the forced three-dimensional
+  Navier–Stokes equations (openai/NavierStokesAndEuler at f9e8bc5), unchanged, with
+  a record of an independent build: both main theorems, alternatives (C) and (D) of
+  the Clay problem description, depend only on propext, Classical.choice and
+  Quot.sound, and their statements are identical to Google DeepMind's Formal
+  Conjectures. The build record was made by Deep Bhattacharjee.
+references:
+  - type: article
+    title: "Finite time blowup for Navier–Stokes"
+    authors:
+      - name: OpenAI
+    year: 2026
+    url: "https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf"
+  - type: article
+    title: "Navier–Stokes lost in translation: Why Lean verification of AI autoformalisation does not guarantee correct natural language proofs"
+    authors:
+      - family-names: Bastounis
+        given-names: A.
+      - family-names: Circelli
+        given-names: F.
+      - family-names: Hansen
+        given-names: A. C.
+    year: 2026
+    identifiers:
+      - type: other
+        value: "arXiv:2610.08144"
