@@ -90,4 +90,10 @@ Euler library and the Comparator challenges, as in OpenAI's README.
 
 No Lean file, `lakefile.toml`, `lake-manifest.json` or `lean-toolchain` is changed. Added:
 this README (OpenAI's README moved to `OPENAI_README.md`), `VERIFICATION.md`, the `verification/`
-folder and `.github/workflows/build.yml`.
+folder, `.github/workflows/build.yml`, and the release files `.zenodo.json`, `CITATION.cff`,
+`.github/RELEASE_NOTES.md` and `.github/workflows/release.yml`.
+
+## Citing
+
+Please cite OpenAI's paper for the mathematics. Releases of this repository are archived on
+Zenodo with OpenAI as creator and Deep Bhattacharjee as curator of the build record.
