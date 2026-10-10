@@ -1,0 +1,60 @@
+name: build
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  statements:
+    name: Statements match Formal Conjectures (C) and (D)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compare with Formal Conjectures at the pinned commit
+        shell: bash
+        run: |
+          curl -sSfL --retry 3 -o fc.lean \
+            https://raw.githubusercontent.com/google-deepmind/formal-conjectures/8bf45ed70d48b2b2a501de9c00b26bfa38c573ee/FormalConjectures/Millenium/NavierStokes.lean
+          python3 verification/compare_statements.py fc.lean
+
+  lean:
+    name: Build the proof and print its axioms
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - name: Free disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
+          df -h /
+      - uses: actions/checkout@v4
+      - name: Install elan
+        shell: bash
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh \
+            | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Fetch the Mathlib cache
+        run: lake exe cache get
+      - name: Build NavierStokes.ComparatorSolution
+        shell: bash
+        run: lake build NavierStokes.ComparatorSolution 2>&1 | tee build.log
+      - name: Check the axioms
+        shell: bash
+        run: |
+          lake env lean verification/Axioms.lean 2>&1 | tee axioms.txt
+          test "$(grep -c 'depends on axioms: \[propext, Classical.choice, Quot.sound\]' axioms.txt)" = 2
+          if grep -qE "sorryAx|ofReduceBool|^error|declaration uses 'sorry'" axioms.txt build.log; then exit 1; fi
+      - name: Keep the logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs
+          path: |
+            build.log
+            axioms.txt
