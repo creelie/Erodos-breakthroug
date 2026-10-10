@@ -97,3 +97,6 @@ folder, `.github/workflows/build.yml`, and the release files `.zenodo.json`, `CI
 
 Please cite OpenAI's paper for the mathematics. Releases of this repository are archived on
 Zenodo with OpenAI as creator and Deep Bhattacharjee as curator of the build record.
+
+- v1.0.0: [10.5281/zenodo.23286556](https://doi.org/10.5281/zenodo.23286556)
+- all versions (concept DOI): [10.5281/zenodo.23286555](https://doi.org/10.5281/zenodo.23286555)
